@@ -27,9 +27,7 @@ function Home({ language }) {
       <section className="hero">
         <div className="hero-content">
           <span className="badge">{t.heroBadge}</span>
-
           <h1>{t.heroTitle}</h1>
-
           <p>{t.heroSubtitle}</p>
 
           <div className="hero-buttons">
@@ -67,7 +65,7 @@ function Home({ language }) {
 
       <section className="stats-section">
         <div className="stat-card">
-          <h2>25K+</h2>
+          <h2>15K+</h2>
           <p>{t.villagePopulation}</p>
         </div>
 
@@ -86,92 +84,49 @@ function Home({ language }) {
           <p>{t.emergencyHelp}</p>
         </div>
       </section>
+
       <section className="today-section">
-  <div className="today-card">
-    <div className="today-icon">📅</div>
+        <div className="today-card">
+          <div className="today-icon">📅</div>
 
-    <div>
-      <h2>{language === "te" ? "ఈరోజు" : "Today"}</h2>
+          <div>
+            <h2>{language === "te" ? "ఈరోజు" : "Today"}</h2>
 
-      <p>
-        {new Date().toLocaleDateString(
-          language === "te" ? "te-IN" : "en-IN",
-          {
-            weekday: "long",
-            day: "2-digit",
-            month: "long",
-            year: "numeric",
-          }
-        )}
-      </p>
-    </div>
-  </div>
-</section>
+            <p>
+              {new Date().toLocaleDateString(
+                language === "te" ? "te-IN" : "en-IN",
+                {
+                  weekday: "long",
+                  day: "2-digit",
+                  month: "long",
+                  year: "numeric",
+                }
+              )}
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="ticker-section">
-  <div className="ticker-label">
-    📢 Updates
-  </div>
+        <div className="ticker-label">
+          {language === "te" ? "📢 అప్డేట్స్" : "📢 Updates"}
+        </div>
 
-  <div className="ticker-content">
-    <span>
-      Free Health Camp at Government Hospital • Farmer Scheme Registration Open • Scholarship Applications Available • Panchayat Meeting This Week
-    </span>
-  </div>
-</section>
+        <div className="ticker-content">
+          <span>
+            {language === "te"
+              ? "ఉచిత ఆరోగ్య శిబిరం • రైతు పథకం నమోదు ప్రారంభం • స్కాలర్‌షిప్ దరఖాస్తులు • పంచాయతీ సమావేశం"
+              : "Free Health Camp • Farmer Scheme Registration Open • Scholarship Applications • Panchayat Meeting"}
+          </span>
+        </div>
+      </section>
 
       <section className="notice-section">
         <div className="notice-header">
           <h2>{t.latestNotices}</h2>
           <span>{t.updatedToday}</span>
         </div>
-        <section className="leaders-section">
-  <h2 className="section-title">
-    {language === "te" ? "👨‍💼 గ్రామ నాయకులు" : "👨‍💼 Village Leaders"}
-  </h2>
 
-  <p className="section-subtitle">
-    {language === "te"
-      ? "ముఖ్యమైన గ్రామ నాయకులు మరియు ప్రజా సహాయ సంప్రదింపులు."
-      : "Important village leadership and public support contacts."}
-  </p>
-
-  <div className="leaders-grid">
-    <div className="leader-card">
-      <div className="leader-icon">👨‍💼</div>
-      <h3>{language === "te" ? "సర్పంచ్" : "Sarpanch"}</h3>
-      <p>
-        {language === "te"
-          ? "గ్రామ అభివృద్ధి నాయకుడు"
-          : "Village Development Head"}
-      </p>
-      <span>📞 1234567890</span>
-    </div>
-
-    <div className="leader-card">
-      <div className="leader-icon">👩‍💼</div>
-      <h3>
-        {language === "te" ? "పంచాయతీ కార్యదర్శి" : "Panchayat Secretary"}
-      </h3>
-      <p>
-        {language === "te"
-          ? "ప్రజా సేవల నిర్వహణ"
-          : "Public Service Management"}
-      </p>
-      <span>📞 1234567890</span>
-    </div>
-
-    <div className="leader-card">
-      <div className="leader-icon">🙋</div>
-      <h3>{language === "te" ? "గ్రామ వాలంటీర్" : "Village Volunteer"}</h3>
-      <p>
-        {language === "te"
-          ? "స్థానిక ప్రజా సహాయం"
-          : "Local Public Support"}
-      </p>
-      <span>📞 1234567890</span>
-    </div>
-  </div>
-</section>
         <div className="notice-list">
           <div className="notice-item">
             <strong>{t.freeHealthCamp}</strong>
@@ -189,36 +144,56 @@ function Home({ language }) {
           </div>
         </div>
       </section>
-            <section className="leaders-section">
-  <h2 className="section-title">👨‍💼 Village Leaders</h2>
 
-  <p className="section-subtitle">
-    Important village leadership and public support contacts.
-  </p>
+      <section className="leaders-section">
+        <h2 className="section-title">
+          {language === "te" ? "👨‍💼 గ్రామ నాయకులు" : "👨‍💼 Village Leaders"}
+        </h2>
 
-  <div className="leaders-grid">
-    <div className="leader-card">
-      <div className="leader-icon">👨‍💼</div>
-      <h3>Sarpanch</h3>
-      <p>Village Development Head</p>
-      <span>📞 1234567890</span>
-    </div>
+        <p className="section-subtitle">
+          {language === "te"
+            ? "ముఖ్యమైన గ్రామ నాయకులు మరియు ప్రజా సహాయ సంప్రదింపులు."
+            : "Important village leadership and public support contacts."}
+        </p>
 
-    <div className="leader-card">
-      <div className="leader-icon">👩‍💼</div>
-      <h3>Panchayat Secretary</h3>
-      <p>Public Service Management</p>
-      <span>📞 1234567890</span>
-    </div>
+        <div className="leaders-grid">
+          <div className="leader-card">
+            <div className="leader-icon">👨‍💼</div>
+            <h3>{language === "te" ? "సర్పంచ్" : "Sarpanch"}</h3>
+            <p>
+              {language === "te"
+                ? "గ్రామ అభివృద్ధి నాయకుడు"
+                : "Village Development Head"}
+            </p>
+            <span>📞 1234567890</span>
+          </div>
 
-    <div className="leader-card">
-      <div className="leader-icon">🙋</div>
-      <h3>Village Volunteer</h3>
-      <p>Local Public Support</p>
-      <span>📞 1234567890</span>
-    </div>
-  </div>
-</section>
+          <div className="leader-card">
+            <div className="leader-icon">👩‍💼</div>
+            <h3>
+              {language === "te" ? "పంచాయతీ కార్యదర్శి" : "Panchayat Secretary"}
+            </h3>
+            <p>
+              {language === "te"
+                ? "ప్రజా సేవల నిర్వహణ"
+                : "Public Service Management"}
+            </p>
+            <span>📞 1234567890</span>
+          </div>
+
+          <div className="leader-card">
+            <div className="leader-icon">🙋</div>
+            <h3>{language === "te" ? "గ్రామ వాలంటీర్" : "Village Volunteer"}</h3>
+            <p>
+              {language === "te"
+                ? "స్థానిక ప్రజా సహాయం"
+                : "Local Public Support"}
+            </p>
+            <span>📞 1234567890</span>
+          </div>
+        </div>
+      </section>
+
       <section className="services-section">
         <h2 className="section-title">{t.digitalServices}</h2>
 
@@ -245,32 +220,6 @@ function Home({ language }) {
             🚨
             <h3>{t.emergencyService}</h3>
             <p>{t.emergencyServiceText}</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="dashboard-section">
-        <h2 className="section-title">{t.dashboard}</h2>
-
-        <div className="dashboard-grid">
-          <div className="dashboard-card">
-            <h1>25K+</h1>
-            <p>{t.residents}</p>
-          </div>
-
-          <div className="dashboard-card">
-            <h1>12</h1>
-            <p>{t.schools}</p>
-          </div>
-
-          <div className="dashboard-card">
-            <h1>6</h1>
-            <p>{t.hospitals}</p>
-          </div>
-
-          <div className="dashboard-card">
-            <h1>20+</h1>
-            <p>{t.schemesCount}</p>
           </div>
         </div>
       </section>
@@ -325,9 +274,10 @@ function Home({ language }) {
         <div className="gallery-grid">
           <div className="gallery-card">
             <img
-              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
+              src="src/assets/village-view.jpg" alt="Village-View"
               alt="Village View"
-            />
+              />
+              
             <h3>{t.villageView}</h3>
           </div>
 
@@ -346,7 +296,7 @@ function Home({ language }) {
 
           <div className="gallery-card">
             <img
-              src="https://images.unsplash.com/photo-1518002054494-3a6f94352e9d?auto=format&fit=crop&w=800&q=80"
+              src="https://thumbs.dreamstime.com/z/community-life-day-city-23221601.jpg"
               alt="Community Life"
             />
             <h3>{t.communityLife}</h3>

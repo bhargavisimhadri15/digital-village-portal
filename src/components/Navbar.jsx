@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { translations } from "../translations/language";
 
 function Navbar({
   darkMode,
@@ -14,8 +13,6 @@ function Navbar({
     new Date()
   );
 
-  const t = translations[language];
-
   useEffect(() => {
     const timer = setInterval(() => {
       setDateTime(new Date());
@@ -28,11 +25,74 @@ function Navbar({
     setOpen(false);
   };
 
+  const menuItems = [
+    {
+      path: "/",
+      icon: "🏠",
+      en: "Home",
+      te: "హోమ్",
+    },
+
+    {
+      path: "/about-village",
+      icon: "🏡",
+      en: "About Village",
+      te: "గ్రామం",
+    },
+
+    {
+      path: "/schemes",
+      icon: "🏛️",
+      en: "Schemes",
+      te: "పథకాలు",
+    },
+
+    {
+      path: "/hospitals",
+      icon: "🏥",
+      en: "Hospitals",
+      te: "ఆసుపత్రులు",
+    },
+
+    {
+      path: "/schools",
+      icon: "🎓",
+      en: "Schools",
+      te: "పాఠశాలలు",
+    },
+
+    {
+      path: "/emergency",
+      icon: "🚨",
+      en: "Emergency",
+      te: "అత్యవసరం",
+    },
+
+    {
+      path: "/events",
+      icon: "🎉",
+      en: "Events",
+      te: "కార్యక్రమాలు",
+    },
+
+    {
+      path: "/citizen-services",
+      icon: "🪪",
+      en: "Citizen Services",
+      te: "పౌర సేవలు",
+    },
+
+    {
+      path: "/contact",
+      icon: "📞",
+      en: "Contact",
+      te: "సంప్రదించండి",
+    },
+  ];
+
   const today = dateTime.toLocaleDateString(
     language === "te"
-
       ? "te-IN"
-
       : "en-IN",
 
     {
@@ -46,9 +106,7 @@ function Navbar({
 
   const time = dateTime.toLocaleTimeString(
     language === "te"
-
       ? "te-IN"
-
       : "en-IN",
 
     {
@@ -63,14 +121,10 @@ function Navbar({
       <div className="top-header">
 
         <p>
-
-          {language === "te"
-
-            ? "🇮🇳🌐🏛️🏡 డిజిటల్ ఇండియా"
-
-            : "🇮🇳🌐🏛️🏡 Digital India"}
-
-        </p>
+  {language === "te"
+    ? "🏛️ డిజిటల్ విలేజ్ | ప్రజా సమాచార పోర్టల్"
+    : "🏛️ Digital Village | Public Information Portal"}
+</p>
 
         <div className="top-actions">
 
@@ -126,9 +180,9 @@ function Navbar({
 
           {language === "te"
 
-            ? "🌐🏡 డిజిటల్ విలేజ్"
+            ? "🌐🏡 డిజిటల్ విలేజ్ పోర్టల్"
 
-            : "🌐🏡 Digital Village"}
+            : "🌐🏡 Digital Village Portal"}
 
         </Link>
 
@@ -142,137 +196,31 @@ function Navbar({
           }
         >
 
-          <NavLink
-            to="/"
+          {menuItems.map((item) => (
 
-            end
+            <NavLink
+              key={item.path}
 
-            onClick={closeMenu}
-          >
+              to={item.path}
 
-            🏠
+              end={item.path === "/"}
 
-            {" "}
+              onClick={closeMenu}
+            >
 
-            {t.home}
+              {item.icon}
 
-          </NavLink>
+              {" "}
 
-          <NavLink
-            to="/about-village"
+              {language === "te"
 
-            onClick={closeMenu}
-          >
+                ? item.te
 
-            🏡
+                : item.en}
 
-            {" "}
+            </NavLink>
 
-            {t.village}
-
-          </NavLink>
-
-          <NavLink
-            to="/schemes"
-
-            onClick={closeMenu}
-          >
-
-            🏛️
-
-            {" "}
-
-            {t.schemes}
-
-          </NavLink>
-
-          <NavLink
-            to="/hospitals"
-
-            onClick={closeMenu}
-          >
-
-            🏥
-
-            {" "}
-
-            {t.hospitals}
-
-          </NavLink>
-
-          <NavLink
-            to="/schools"
-
-            onClick={closeMenu}
-          >
-
-            🎓
-
-            {" "}
-
-            {t.schools}
-
-          </NavLink>
-
-          <NavLink
-            to="/emergency"
-
-            onClick={closeMenu}
-          >
-
-            🚨
-
-            {" "}
-
-            {t.emergency}
-
-          </NavLink>
-
-          <NavLink
-            to="/events"
-
-            onClick={closeMenu}
-          >
-
-            🎉
-
-            {" "}
-
-            {t.events}
-
-          </NavLink>
-
-          <NavLink
-            to="/citizen-services"
-
-            onClick={closeMenu}
-          >
-
-            🪪
-
-            {" "}
-
-            {language === "te"
-
-              ? "పౌర సేవలు"
-
-              : "Citizen Services"}
-
-          </NavLink>
-
-          <NavLink
-            to="/contact"
-
-            onClick={closeMenu}
-          >
-
-            📞
-
-            {" "}
-
-            {t.contact}
-
-          </NavLink>
+          ))}
 
         </div>
 
