@@ -274,7 +274,7 @@ function Home({ language }) {
         <div className="gallery-grid">
           <div className="gallery-card">
             <img
-              src="src/assets/village-view.jpg" alt="Village-View"
+              src="public/village-view.jpg" alt="Village-View"
               alt="Village View"
               />
               
@@ -290,7 +290,7 @@ function Home({ language }) {
           </div>
 
           <div className="gallery-card">
-            <img src="src/assets/village-temple.jpg" alt="Village Temple" />
+            <img src="public/village-temple.jpg" alt="Village Temple" />
             <h3>{t.villageTemple}</h3>
           </div>
 
