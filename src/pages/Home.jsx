@@ -290,7 +290,7 @@ function Home({ language }) {
           </div>
 
           <div className="gallery-card">
-            <img src="assets/public/village-temple.jpg" alt="Village Temple" />
+            <img src="dist/images/village-temple.jpg" alt="Village Temple" />
             <h3>{t.villageTemple}</h3>
           </div>
 
